@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bryce De Developer · AI MVP &amp; SaaS Builder</title>
+  <meta name="description" content="Bryce De Developer is an AI MVP & SaaS builder in Lagos, Nigeria. From idea to a working product in days, not months." />
+
+  <!-- Fonts:
+       Archivo (variable width 62–125%) → condensed uppercase headlines + body
+       Cormorant Garamond italic        → the blue serif accent phrase in each headline
+       JetBrains Mono                   → labels, eyebrows, numbers
+       Caveat                           → handwritten captions on the works desk
+       Fraunces                         → the hero headline (light, lowercase, amber italic accent) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- =========================================================
+       NAV
+       ========================================================= -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav wrap" aria-label="Main">
+      <a href="#top" class="logo" aria-label="Bryce De Developer home page">
+        <span class="logo__mark">B</span>
+        <span class="logo__text">Bryce De Developer</span>
+      </a>
+
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#benefits">What you get</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav__mobile-cta">
+          <a href="#contact" class="btn btn--full">
+            <span class="btn__fill"></span>
+            <span class="btn__text">Let's build it</span>
+            <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg></span>
+          </a>
+        </li>
+      </ul>
+
+      <a href="#contact" class="btn btn--sm nav__cta">
+        <span class="btn__fill"></span>
+        <span class="btn__text">Let's build it</span>
+        <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg></span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- =========================================================
+         LANDING: night hero → "zoom into the glow" → works desk
+         ---------------------------------------------------------
+         On desktop, js/main.js pins the hero and scales the photo
+         into the glowing laptop screen until its warm light fills
+         the screen, then the amber works desk appears underneath.
+         The glow point is set in css/style.css (--glow-x / --glow-y).
+         ========================================================= -->
+    <div class="landing" id="landing">
+
+      <!-- ── HERO ── -->
+      <section class="intro" id="top">
+        <!-- Photo + light layers. The photo is set in CSS: url("../images/hero-night.jpg") -->
+        <div class="intro__stage" aria-hidden="true">
+          <div class="intro__photo" id="introPhoto"></div>
+          <!-- Faint drifting stars live inside the shade, so they fade out when the zoom starts -->
+          <div class="intro__shade" id="introShade"><canvas class="intro__stars" id="introStars"></canvas></div>
+          <div class="intro__glow" id="introGlow"></div>
+          <div class="intro__flash" id="introFlash"></div>
+        </div>
+
+        <div class="wrap intro__content" id="introContent">
+
+          <!-- AUDIENCE TABS: each tab swaps the whole headline + subheadline.
+               Edit the text in each tab's attributes:
+                 data-headline  →  {curly braces} = amber italic accent,  [square brackets] = small glyph
+                 data-line      →  the subheadline
+               Write "<" and ">" as &lt; and &gt; inside attributes (e.g. the Agencies glyph). -->
+          <div class="audience reveal" role="tablist" aria-label="Who is this for?">
+            <button class="audience__tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audiencePanel"
+              data-headline="From idea to a {working product} [✦] in days, not months."
+              data-line="I help founders and coaches turn ideas, or stalled half-built apps, into real, usable products, fast.">For Everyone</button>
+            <button class="audience__tab" type="button" role="tab" aria-selected="false" aria-controls="audiencePanel" tabindex="-1"
+              data-headline="Walk in with a {working product}, [🚀] not just a pitch deck."
+              data-line="Show investors something they can click through, instead of promising what you'll build.">Founders</button>
+            <button class="audience__tab" type="button" role="tab" aria-selected="false" aria-controls="audiencePanel" tabindex="-1"
+              data-headline="Turn your knowledge into {a product people pay for}."
+              data-line="Client portals, booking and intake systems built around how you actually work.">Coaches</button>
+            <button class="audience__tab" type="button" role="tab" aria-selected="false" aria-controls="audiencePanel" tabindex="-1"
+              data-headline="Your overflow builds, {shipped and finished}. [&lt;/&gt;]"
+              data-line="I take on extra work and rescue stalled Lovable, Base44 and Claude Code projects.">Agencies</button>
+            <button class="audience__tab" type="button" role="tab" aria-selected="false" aria-controls="audiencePanel" tabindex="-1"
+              data-headline="Swap the patchwork for {one system that works}."
+              data-line="A working MVP in days, without burning your budget on overbuilding.">Startups</button>
+          </div>
+
+          <!-- Swapped by the tabs above. This default copy is what shows before JS runs (For Everyone). -->
+          <div class="intro__swap" id="audiencePanel" role="tabpanel" aria-live="polite">
+            <h1 class="intro__title reveal" data-delay="1">
+              <span class="intro__titletext">From idea to a <span class="glyph-wrap"><em class="intro__accent">working product</em>&nbsp;<span class="glyph glyph--spark" aria-hidden="true">✦</span></span> in days, not months.</span>
+            </h1>
+
+            <p class="intro__sub reveal" data-delay="2">
+              <span class="intro__subtext">I help founders and coaches turn ideas, or stalled half-built apps, into real, usable products, fast.</span>
+            </p>
+          </div>
+
+          <div class="intro__actions reveal" data-delay="3">
+            <a href="#work" class="btn">
+              <span class="btn__fill"></span>
+              <span class="btn__text">View Work</span>
+              <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg></span>
+            </a>
+            <!-- Calendly link is set once in js/main.js (CONFIG.calendly) -->
+            <a href="https://calendly.com/ogidiayomide" class="btn btn--ghost" data-calendly target="_blank" rel="noopener">
+              <span class="btn__fill"></span>
+              <span class="btn__text">Book a Call</span>
+              <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- HERO FOOTER: "Built with" strip (left) · testimonials (middle, hidden for now) · credentials (right) -->
+        <div class="wrap intro__bottom" id="introBottom">
+
+          <div class="trust reveal" data-delay="3">
+            <p class="trust__label">Built with</p>
+            <!-- BUILT WITH: logo files live in images/logos/ under these exact names:
+                   lovable.png · base44.png · claude-code.svg · supabase.svg · openai.png
+                 (To swap one, overwrite the file, or change its src below if the format changes.)
+                 A logo shows up automatically once its file is there. Until then a dashed
+                 placeholder with the tool's name is shown instead (js/main.js, section 10).
+                 Full brand colours on transparent, at full opacity; hover = slight scale-up.
+                 (OpenAI's mark is monochrome by design, so it stays white.) -->
+            <ul class="stack">
+              <li class="stack__item" title="Lovable"><img class="stack__logo" src="images/logos/lovable.png" alt="Lovable" /><span class="stack__name">Lovable</span></li>
+              <li class="stack__item" title="Base44"><img class="stack__logo" src="images/logos/base44.png" alt="Base44" /><span class="stack__name">Base44</span></li>
+              <li class="stack__item" title="Claude Code"><img class="stack__logo" src="images/logos/claude-code.svg" alt="Claude Code" /><span class="stack__name">Claude Code</span></li>
+              <li class="stack__item" title="Supabase"><img class="stack__logo" src="images/logos/supabase.svg" alt="Supabase" /><span class="stack__name">Supabase</span></li>
+              <li class="stack__item" title="OpenAI"><img class="stack__logo" src="images/logos/openai.png" alt="OpenAI" /><span class="stack__name">OpenAI</span></li>
+            </ul>
+          </div>
+
+          <!-- TESTIMONIAL SNIPPETS: hidden until there are real client quotes.
+               To re-enable: replace the placeholder quotes and names below, delete the two
+               "Placeholder" tags, then remove this comment's opening and closing lines so the
+               <div class="snippets"> block is live again (its styles are still in css/style.css).
+
+          <div class="snippets reveal" data-delay="4">
+            <figure class="snippet">
+              <span class="snippet__tag">Placeholder</span>
+              <blockquote>“Replace with a short client quote about how fast it went live.”</blockquote>
+              <figcaption>Client Name, Founder</figcaption>
+            </figure>
+            <figure class="snippet">
+              <span class="snippet__tag">Placeholder</span>
+              <blockquote>“Replace with a short quote about rescuing a stalled build.”</blockquote>
+              <figcaption>Client Name, Coach</figcaption>
+            </figure>
+          </div>
+
+          END TESTIMONIAL SNIPPETS -->
+
+          <ul class="creds reveal" data-delay="4" aria-label="Credentials">
+            <li><span class="creds__dot"></span>Lagos, Nigeria</li>
+            <li>Lovable · Base44 · Claude Code</li>
+            <li><span class="creds__dot creds__dot--live"></span>Same-day replies</li>
+          </ul>
+        </div>
+
+        <!-- Sits just under the glowing screen -->
+        <a href="#work" class="scroll-hint" id="scrollHint">
+          <span>Scroll to reveal</span>
+          <i aria-hidden="true"></i>
+        </a>
+      </section>
+
+      <!-- =========================================================
+           01 · SELECTED WORK — the warm amber desk
+           ---------------------------------------------------------
+           HOW TO ADD YOUR MEDIA TO A CARD (no layout changes needed):
+
+           1) Static image (always keep one, it's the fallback/poster):
+                <img class="work-media__img" src="images/your-shot.jpg" ...>
+
+           2) Hover preview video (optional, self-hosted .mp4):
+                <video class="work-media__video" src="videos/your-preview.mp4" ...></video>
+              Short (5 to 15s), muted, small (under 5 MB). Plays on hover
+              (desktop) or when scrolled into view (phones). Delete the
+              <video> tag to show the image only.
+
+           3) "Play" button → full video in a lightbox. Set ONE of these on
+              the <button class="play-btn">:
+                data-video="videos/your-full-video.mp4"          ← self-hosted
+                data-embed="https://www.youtube.com/watch?v=ID"  ← YouTube
+                data-embed="https://vimeo.com/123456789"         ← Vimeo
+                data-embed="https://www.loom.com/share/ID"       ← Loom
+              Leave both empty and the Play button hides itself.
+
+           4) "View case" link: replace href="#" with your case study URL.
+              While it's "#", it opens the card's video (or jumps to Contact
+              if the card has none).
+
+           5) Each paper's tilt is set by style="--rot: -2.4deg".
+           ========================================================= -->
+      <section class="work desk" id="work">
+        <div class="desk__props" aria-hidden="true"><span class="coffee-ring"></span></div>
+
+        <div class="wrap">
+          <div class="section-head section-head--split desk__head" id="deskHead">
+            <div>
+              <p class="eyebrow"><b>01</b> Selected work</p>
+              <h2 class="h2">Real products, <em class="it">shipped</em> and live.</h2>
+            </div>
+            <p class="lead">Hover a project to preview it. Hit play to watch the full walkthrough.</p>
+          </div>
+
+          <div class="desk__grid">
+
+            <!-- ── Project 1: Monarch · SELF-HOSTED .mp4 (preview + full video) ── -->
+            <div class="desk-item">
+              <article class="work-card paper" style="--rot: -2.4deg">
+                <svg class="paperclip" viewBox="0 0 24 56" aria-hidden="true"><path d="M8 16v24a4 4 0 0 0 8 0V9a7 7 0 0 0-14 0v33a10 10 0 0 0 20 0V16"/></svg>
+                <div class="work-media">
+                  <img class="work-media__img" src="images/monarch.jpg" alt="Monarch legal-AI website preview" loading="lazy" />
+                  <!-- PREVIEW VIDEO: 15s muted loop, plays on hover (poster = same still as the image) -->
+                  <video class="work-media__video" src="videos/monarch-preview.mp4" poster="images/monarch.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                  <!-- FULL VIDEO: opens in the lightbox -->
+                  <button class="play-btn" type="button" data-video="videos/monarch.mp4" data-embed="" data-title="Monarch: Legal-AI Website & Brand Rebuild">
+                    <span class="play-btn__icon" aria-hidden="true"></span> Play
+                  </button>
+                  <span class="media-badge">MP4</span>
+                </div>
+                <p class="sticky sticky--yellow" aria-hidden="true">legal-AI website ✓</p>
+                <div class="work-card__body">
+                  <p class="work-card__tag"><b>P/01</b> Legal AI · San Francisco</p>
+                  <h3 class="h3">Monarch: Legal-AI Website &amp; Brand Rebuild</h3>
+                  <p>Rebuilt the website for a San Francisco legal-AI company, moving it from a generic AI-startup look to a premium, institutional brand built around authority and precision. Built with Claude Code + React.</p>
+                  <ul class="chips"><li>Claude Code</li><li>React</li><li>Brand</li></ul>
+                  <a class="case-link" href="#">View case <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Project 2: Payy · SELF-HOSTED .mp4 (preview + full video) ── -->
+            <div class="desk-item">
+              <article class="work-card paper paper--tape" style="--rot: 1.8deg">
+                <span class="tape" aria-hidden="true"></span>
+                <div class="work-media">
+                  <img class="work-media__img" src="images/payy.jpg" alt="Payy stablecoin payments product UI preview" loading="lazy" />
+                  <!-- PREVIEW VIDEO: 9.5s muted loop, plays on hover (poster = same still as the image) -->
+                  <video class="work-media__video" src="videos/payy-preview.mp4" poster="images/payy.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                  <!-- FULL VIDEO: opens in the lightbox. (To use a YouTube/Vimeo/Loom link instead,
+                       clear data-video and paste the link into data-embed.) -->
+                  <button class="play-btn" type="button" data-video="videos/payy.mp4" data-embed="" data-title="Payy: Stablecoin Payments Website & Product UI">
+                    <span class="play-btn__icon" aria-hidden="true"></span> Play
+                  </button>
+                  <span class="media-badge">MP4</span>
+                </div>
+                <p class="sticky sticky--peach" aria-hidden="true">stablecoin payments UI</p>
+                <div class="work-card__body">
+                  <p class="work-card__tag"><b>P/02</b> Fintech · Payments</p>
+                  <h3 class="h3">Payy: Stablecoin Payments Website &amp; Product UI</h3>
+                  <p>Designed and built a modern, responsive site plus an interactive wallet/dashboard UI for a stablecoin payments infrastructure product.</p>
+                  <ul class="chips"><li>Website</li><li>Dashboard UI</li><li>Responsive</li></ul>
+                  <a class="case-link" href="#">View case <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Project 3: Weingut Wailand · SELF-HOSTED .mp4 (preview + full video) ── -->
+            <div class="desk-item">
+              <article class="work-card paper" style="--rot: -1.3deg">
+                <svg class="paperclip paperclip--right" viewBox="0 0 24 56" aria-hidden="true"><path d="M8 16v24a4 4 0 0 0 8 0V9a7 7 0 0 0-14 0v33a10 10 0 0 0 20 0V16"/></svg>
+                <div class="work-media">
+                  <img class="work-media__img" src="images/weingut.jpg" alt="Weingut Wailand winery reservation site preview" loading="lazy" />
+                  <!-- PREVIEW VIDEO: 8s muted loop, plays on hover (poster = same still as the image) -->
+                  <video class="work-media__video" src="videos/weingut-preview.mp4" poster="images/weingut.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                  <!-- FULL VIDEO: opens in the lightbox -->
+                  <button class="play-btn" type="button" data-video="videos/weingut.mp4" data-embed="" data-title="Weingut Wailand: Bilingual Winery Reservation Site">
+                    <span class="play-btn__icon" aria-hidden="true"></span> Play
+                  </button>
+                  <span class="media-badge">MP4</span>
+                </div>
+                <p class="sticky sticky--mint" aria-hidden="true">bilingual winery booking</p>
+                <div class="work-card__body">
+                  <p class="work-card__tag"><b>P/03</b> Hospitality · Vienna</p>
+                  <h3 class="h3">Weingut Wailand: Bilingual Winery Reservation Site</h3>
+                  <p>A bilingual winery booking site with a live availability indicator, smart reservations and an admin dashboard.</p>
+                  <ul class="chips"><li>Bilingual</li><li>Reservations</li><li>Admin</li></ul>
+                  <a class="case-link" href="#">View case <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Project 04: Peedu Kass · Artist Platform · SELF-HOSTED .mp4 (preview + full video) ──
+                   images/project4.jpg           poster / still image
+                   videos/project4-preview.mp4   8s muted hover-preview loop
+                   videos/project4.mp4           full video for the Play lightbox ── -->
+            <div class="desk-item">
+              <article class="work-card paper paper--tape" style="--rot: 1.6deg">
+                <span class="tape" aria-hidden="true"></span>
+                <div class="work-media">
+                  <img class="work-media__img" src="images/project4.jpg" alt="Peedu Kass artist platform preview" loading="lazy" />
+                  <!-- PREVIEW VIDEO: muted loop, plays on hover (poster = same still as the image) -->
+                  <video class="work-media__video" src="videos/project4-preview.mp4" poster="images/project4.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                  <!-- FULL VIDEO: opens in the lightbox -->
+                  <button class="play-btn" type="button" data-video="videos/project4.mp4" data-embed="" data-title="Peedu Kass: Artist Platform">
+                    <span class="play-btn__icon" aria-hidden="true"></span> Play
+                  </button>
+                  <span class="media-badge">MP4</span>
+                </div>
+                <p class="sticky sticky--peach" aria-hidden="true">artist platform + CRM</p>
+                <div class="work-card__body">
+                  <p class="work-card__tag"><b>P/04</b> Artist Platform</p>
+                  <h3 class="h3">Peedu Kass</h3>
+                  <p>A Nordic-minimalist portfolio platform for Estonian musician Peedu Kass, with a native in-browser music player, plus a fully custom CRM and CMS coded from scratch (no third-party plugins) so the client can manage leads and update text, images, audio and video himself.</p>
+                  <ul class="chips"><li>Next.js</li><li>React</li><li>Tailwind</li><li>Supabase</li><li>Claude Code</li></ul>
+                  <div class="case-links">
+                    <a class="case-link" href="https://www.peedukass.com/" target="_blank" rel="noopener">Visit site <span aria-hidden="true">↗</span></a>
+                    <a class="case-link" href="https://www.peedukass.com/press" target="_blank" rel="noopener">Press <span aria-hidden="true">↗</span></a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Project 05: HoopWomen · Sports Web App · SELF-HOSTED .mp4 (preview + full video) ──
+                   images/project5.jpg           poster / still image
+                   videos/project5-preview.mp4   8s muted hover-preview loop (no audio)
+                   videos/project5.mp4           full video for the Play lightbox, WITH background music:
+                                                 the lightbox player is unmuted with volume controls ── -->
+            <div class="desk-item">
+              <article class="work-card paper" style="--rot: -2.1deg">
+                <svg class="paperclip" viewBox="0 0 24 56" aria-hidden="true"><path d="M8 16v24a4 4 0 0 0 8 0V9a7 7 0 0 0-14 0v33a10 10 0 0 0 20 0V16"/></svg>
+                <div class="work-media">
+                  <img class="work-media__img" src="images/project5.jpg" alt="HoopWomen WNBA web app preview" loading="lazy" />
+                  <!-- PREVIEW VIDEO: muted loop, plays on hover (poster = same still as the image) -->
+                  <video class="work-media__video" src="videos/project5-preview.mp4" poster="images/project5.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                  <!-- FULL VIDEO: opens in the lightbox with sound -->
+                  <button class="play-btn" type="button" data-video="videos/project5.mp4" data-embed="" data-title="HoopWomen: Sports Web App">
+                    <span class="play-btn__icon" aria-hidden="true"></span> Play
+                  </button>
+                  <span class="media-badge">MP4 · Sound</span>
+                </div>
+                <p class="sticky sticky--yellow" aria-hidden="true">live WNBA scores</p>
+                <div class="work-card__body">
+                  <p class="work-card__tag"><b>P/05</b> Sports Web App</p>
+                  <h3 class="h3">HoopWomen</h3>
+                  <p>A women's basketball (WNBA) web app with live scores, standings, playoffs, team pages and schedules, plus multiple switchable themes (Midnight, Daylight, Terminal, Clay). Built with Claude Code.</p>
+                  <ul class="chips"><li>Claude Code</li><li>Live scores</li><li>4 themes</li></ul>
+                  <a class="case-link" href="#">View case <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Project 06: Bridging The Gap Foundation · Nonprofit Website · SELF-HOSTED .mp4 (preview + full video) ──
+                   images/project6.jpg           poster / still image
+                   videos/project6-preview.mp4   8s muted hover-preview loop
+                   videos/project6.mp4           full video for the Play lightbox ── -->
+            <div class="desk-item">
+              <article class="work-card paper" style="--rot: 2.2deg">
+                <svg class="paperclip paperclip--right" viewBox="0 0 24 56" aria-hidden="true"><path d="M8 16v24a4 4 0 0 0 8 0V9a7 7 0 0 0-14 0v33a10 10 0 0 0 20 0V16"/></svg>
+                <div class="work-media">
+                  <img class="work-media__img" src="images/project6.jpg" alt="Bridging The Gap Foundation nonprofit website preview" loading="lazy" />
+                  <!-- PREVIEW VIDEO: muted loop, plays on hover (poster = same still as the image) -->
+                  <video class="work-media__video" src="videos/project6-preview.mp4" poster="images/project6.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                  <!-- FULL VIDEO: opens in the lightbox -->
+                  <button class="play-btn" type="button" data-video="videos/project6.mp4" data-embed="" data-title="Bridging The Gap Foundation: Nonprofit Website">
+                    <span class="play-btn__icon" aria-hidden="true"></span> Play
+                  </button>
+                  <span class="media-badge">MP4</span>
+                </div>
+                <p class="sticky sticky--mint" aria-hidden="true">nonprofit brand + site</p>
+                <div class="work-card__body">
+                  <p class="work-card__tag"><b>P/06</b> Nonprofit Website</p>
+                  <h3 class="h3">Bridging The Gap Foundation</h3>
+                  <p>Brand identity and website for a New Jersey community nonprofit. Built the visual system (palette, typography, hierarchy) from the client's logo, then designed an accessible, trust-focused site that organises support programmes, donations and ways to get involved, with equal care for desktop and mobile. Built with Claude Code.</p>
+                  <ul class="chips"><li>Claude Code</li><li>Brand identity</li><li>Accessible</li></ul>
+                  <a class="case-link" href="#">View case <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Project 07: StickFrag · Browser Game · Multiplayer FPS · SELF-HOSTED .mp4 (preview + full video) ──
+                   images/project7.jpg           poster / still image
+                   videos/project7-preview.mp4   8s muted hover-preview loop (no audio)
+                   videos/project7.mp4           full video for the Play lightbox, WITH game sounds:
+                                                 the lightbox player is unmuted with volume controls ── -->
+            <div class="desk-item">
+              <article class="work-card paper paper--tape" style="--rot: -1.5deg">
+                <span class="tape" aria-hidden="true"></span>
+                <div class="work-media">
+                  <img class="work-media__img" src="images/project7.jpg" alt="StickFrag multiplayer browser game preview" loading="lazy" />
+                  <!-- PREVIEW VIDEO: muted loop, plays on hover (poster = same still as the image) -->
+                  <video class="work-media__video" src="videos/project7-preview.mp4" poster="images/project7.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                  <!-- FULL VIDEO: opens in the lightbox with sound -->
+                  <button class="play-btn" type="button" data-video="videos/project7.mp4" data-embed="" data-title="StickFrag: Browser Game · Multiplayer FPS">
+                    <span class="play-btn__icon" aria-hidden="true"></span> Play
+                  </button>
+                  <span class="media-badge">MP4 · Sound</span>
+                </div>
+                <p class="sticky sticky--peach" aria-hidden="true">14-player stickman FPS</p>
+                <div class="work-card__body">
+                  <p class="work-card__tag"><b>P/07</b> Browser Game · Multiplayer FPS</p>
+                  <h3 class="h3">StickFrag</h3>
+                  <p>A free browser-based multiplayer stickman shooter: a comic-style FPS for up to 14 players with SMG, shotgun, rifle and revolver. No download, no account; it runs straight in the browser. Built in about a week with Claude Code and hosted on Cloudflare.</p>
+                  <ul class="chips"><li>Claude Code</li><li>Cloudflare</li><li>Multiplayer</li></ul>
+                  <div class="case-links">
+                    <a class="case-link" href="https://stickfrag.com" target="_blank" rel="noopener">Play the game <span aria-hidden="true">↗</span></a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Project 08 · PLACEHOLDER: drop in these 3 files to activate it (no code changes) ──
+                   images/project8.jpg           poster / still image
+                   videos/project8-preview.mp4   short muted hover-preview loop
+                   videos/project8.mp4           full video for the Play lightbox
+                 Until they exist, the card shows a "Coming soon" panel and hides Play.
+                 Then edit the title, tag, sticky note, description and chips below. ── -->
+            <div class="desk-item">
+              <article class="work-card paper is-pending" style="--rot: 1.2deg">
+                <svg class="paperclip" viewBox="0 0 24 56" aria-hidden="true"><path d="M8 16v24a4 4 0 0 0 8 0V9a7 7 0 0 0-14 0v33a10 10 0 0 0 20 0V16"/></svg>
+                <div class="work-media">
+                  <img class="work-media__img" src="images/project8.jpg" alt="Project 08 preview" loading="lazy" />
+                  <video class="work-media__video" src="videos/project8-preview.mp4" poster="images/project8.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                  <button class="play-btn" type="button" data-video="videos/project8.mp4" data-embed="" data-title="Project 08" hidden>
+                    <span class="play-btn__icon" aria-hidden="true"></span> Play
+                  </button>
+                  <span class="media-badge" hidden>MP4</span>
+                </div>
+                <p class="sticky sticky--yellow" aria-hidden="true">coming soon</p>
+                <div class="work-card__body">
+                  <p class="work-card__tag"><b>P/08</b> Coming soon</p>
+                  <h3 class="h3">Project 08</h3>
+                  <p>New build, details coming soon.</p>
+                  <ul class="chips"><li>TBA</li></ul>
+                  <a class="case-link" href="#">View case <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =========================================================
+         02 · PROBLEM LEAD-IN (cream breather)
+         ========================================================= -->
+    <section class="problem tone-light">
+      <div class="wrap problem__inner">
+        <p class="eyebrow reveal"><b>02</b> The problem</p>
+        <p class="problem__text reveal" data-delay="1">
+          Most founders and coaches have a clear idea in their head, but months later it's still stuck in a doc.
+          The vision is there, but building feels slow, expensive and complicated. The right developer never shows up,
+          tools break at 80%, and the longer it sits unbuilt, the more momentum and money quietly leak away.
+          <em class="it">That's where I come in.</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         03 · WHAT I DO (services)
+         ========================================================= -->
+    <section class="services tone-dark section" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow reveal"><b>03</b> What I do</p>
+          <h2 class="h2 reveal" data-delay="1">Five ways I get your product <em class="it">out of the doc</em> and live.</h2>
+        </div>
+
+        <div class="services__grid">
+          <article class="service-card reveal">
+            <span class="service-card__num">01</span>
+            <h3 class="h3">MVPs &amp; SaaS Products</h3>
+            <p>A working product you can click through, show investors, and put in front of real users.</p>
+          </article>
+          <article class="service-card reveal" data-delay="1">
+            <span class="service-card__num">02</span>
+            <h3 class="h3">Websites &amp; Landing Pages</h3>
+            <p>Clean, custom, premium design. Not a generic template or a cookie-cutter AI build.</p>
+          </article>
+          <article class="service-card reveal" data-delay="2">
+            <span class="service-card__num">03</span>
+            <h3 class="h3">Internal Tools &amp; Dashboards</h3>
+            <p>One place for your team, with roles and permissions, built around how you actually work.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__num">04</span>
+            <h3 class="h3">Client Portals &amp; Booking/Intake Systems</h3>
+            <p>Smart booking, intake forms and admin dashboards.</p>
+          </article>
+          <article class="service-card service-card--highlight reveal" data-delay="1">
+            <span class="service-card__num">05</span>
+            <h3 class="h3">Rescue &amp; Finish Stalled Builds</h3>
+            <p>Started in Lovable, Base44 or Claude Code and hit a wall? I get in, fix what's broken, and ship it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         04 · WHAT YOU GET (benefits)
+         ========================================================= -->
+    <section class="benefits tone-dark section" id="benefits">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow reveal"><b>04</b> What you get</p>
+          <h2 class="h2 reveal" data-delay="1">Software you can <em class="it">demo, test</em> and own.</h2>
+        </div>
+
+        <ol class="benefit-list">
+          <li class="benefit reveal">
+            <span class="benefit__num">01</span>
+            <h3 class="h3">A real product</h3>
+            <p>A real product you can demo to investors and real users, not a pitch deck full of promises.</p>
+          </li>
+          <li class="benefit reveal" data-delay="1">
+            <span class="benefit__num">02</span>
+            <h3 class="h3">Design built around you</h3>
+            <p>Clean, custom design built around your brand, not a one-size-fits-all shell.</p>
+          </li>
+          <li class="benefit reveal" data-delay="2">
+            <span class="benefit__num">03</span>
+            <h3 class="h3">Speed</h3>
+            <p>Working software in days, so you can test your idea without burning budget on overbuilding.</p>
+          </li>
+          <li class="benefit reveal" data-delay="3">
+            <span class="benefit__num">04</span>
+            <h3 class="h3">You own it</h3>
+            <p>Built on tools like Supabase, so your data and the valuable part move with you.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         05 · ABOUT
+         ========================================================= -->
+    <section class="about tone-light section" id="about">
+      <div class="wrap about__inner">
+        <div class="about__photo reveal">
+          <!-- Headshot: shown in natural colour (no filter or tint). Crop focus is set in css/style.css (.about__photo img, object-position). -->
+          <img src="images/ayomide-portrait.jpg" alt="Portrait of Ayomide Ogidi" width="900" height="1200" loading="lazy" />
+          <span class="about__badge"><span class="status__dot"></span>Lagos, Nigeria</span>
+        </div>
+        <div class="about__copy">
+          <p class="eyebrow reveal"><b>05</b> About</p>
+          <h2 class="h2 reveal" data-delay="1">A builder, <em class="it">not a template</em> seller.</h2>
+          <p class="reveal" data-delay="2">
+            I'm <strong>Ayomide Ogidi</strong>, the AI MVP &amp; SaaS builder behind Bryce De Developer, based in Lagos, Nigeria.
+          </p>
+          <p class="reveal" data-delay="3">
+            The gap for most founders isn't the idea. It's everything between the idea and a product people can actually
+            use: the build that drags on for months, the developer who never shows up, the tool that breaks at 80%. The
+            longer it sits unbuilt, the more momentum and money quietly leak away.
+          </p>
+          <p class="reveal" data-delay="4">
+            I close that gap with working products. Sometimes an MVP you can put in front of investors, sometimes an
+            internal dashboard, a client portal, a booking system, or a website finally wired into your CRM. Usually a
+            combination, shipped in days, not months. Built fast with AI-native tools, but designed and owned like real
+            software.
+          </p>
+          <ul class="chips reveal" data-delay="4">
+            <li>Lovable</li><li>Base44</li><li>Claude Code</li><li>Supabase</li><li>React</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         06 · TESTIMONIALS
+         ---------------------------------------------------------
+         TO ADD ANOTHER TESTIMONIAL: copy the whole <figure class="quote-card"> … </figure>
+         block below, paste it right after the last one, and change the quote, photo,
+         name, title and link. Layout adapts automatically:
+           1 card  → one wide, centred testimonial
+           2+ cards → a row of cards (3 across on desktop, stacked on tablets/phones) (current: 3)
+         Photos go in images/ (small square headshot, ~200×200 is plenty). If a photo
+         file is missing, the reviewer's initials (data-initials) show instead.
+         ========================================================= -->
+    <section class="testimonials tone-dark section">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow reveal"><b>06</b> Client words</p>
+          <h2 class="h2 reveal" data-delay="1">What working together <em class="it">feels</em> like.</h2>
+        </div>
+
+        <div class="testimonials__grid">
+
+          <figure class="quote-card reveal">
+            <blockquote>“I'm happy to recommend Ayomide as a Full-Stack Developer who truly stands out for both his technical skills and his professional attitude. He has a strong ability to take an idea and turn it into a well-structured, scalable product. He is reliable, detail-oriented, and always focused on finding practical solutions rather than just writing code. He communicates clearly, asks the right questions, and takes real ownership of his work. What makes him especially valuable is his balance of speed and quality — he delivers efficiently without compromising maintainability or long-term stability. Any team looking for a dependable, proactive, and skilled Full-Stack Engineer would be lucky to have Ayomide on board!”</blockquote>
+            <figcaption>
+              <a class="quote-card__person" href="https://www.linkedin.com/in/yuliia-denysova369/" target="_blank" rel="noopener" aria-label="Yuliia D. on LinkedIn (opens in a new tab)">
+                <img class="avatar avatar--photo" src="images/yuliia.jpg" alt="" width="56" height="56" loading="lazy" data-initials="YD" />
+                <span>
+                  <strong>Yuliia D.</strong>
+                  <small>Technical Recruiter (IT)</small>
+                </span>
+              </a>
+            </figcaption>
+          </figure>
+
+          <figure class="quote-card reveal" data-delay="1">
+            <blockquote>“Ayomide has excellent technical knowledge, makes good design decisions, and is very easy to communicate with. He is also a fast learner that quickly get the grasp of new things. As such, Ayomide can be trusted with the hardest tasks.”</blockquote>
+            <figcaption>
+              <a class="quote-card__person" href="https://www.linkedin.com/in/mykhailo-ivanytskyi-b7a79630/" target="_blank" rel="noopener" aria-label="Mykhailo Ivanytskyi on LinkedIn (opens in a new tab)">
+                <img class="avatar avatar--photo" src="images/mykhailo.jpg" alt="" width="56" height="56" loading="lazy" data-initials="MI" />
+                <span>
+                  <strong>Mykhailo Ivanytskyi</strong>
+                  <small>Head of DevOps Unit, EPAM Systems</small>
+                </span>
+              </a>
+            </figcaption>
+          </figure>
+
+          <figure class="quote-card reveal" data-delay="2">
+            <blockquote>“If you ever ask me to name a person who I think of when it comes to being 'trustworthy', my answer is immediate: Ayomide Ogidi. He is a very reliable individual. I have never seen anyone who is that ready to help, assist and support. On top of that I can admit that he is hardworking, punctual and highly organized. Ayomide is a pleasure to work with!”</blockquote>
+            <figcaption>
+              <a class="quote-card__person" href="https://www.linkedin.com/in/olegdonner/" target="_blank" rel="noopener" aria-label="Oleg Donner on LinkedIn (opens in a new tab)">
+                <img class="avatar avatar--photo" src="images/oleg.jpg" alt="" width="56" height="56" loading="lazy" data-initials="OD" />
+                <span>
+                  <strong>Oleg Donner</strong>
+                  <small>Hospitality Photographer, HospitalityPhotography.ca</small>
+                </span>
+              </a>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         07 · CONTACT (gradient band)
+         ========================================================= -->
+    <section class="contact section" id="contact">
+      <div class="contact__grid-bg" aria-hidden="true"></div>
+      <div class="wrap contact__inner">
+        <div class="contact__copy">
+          <p class="eyebrow eyebrow--light reveal"><b>07</b> Contact</p>
+          <h2 class="h2 reveal" data-delay="1">Let's <em class="it">build</em> it.</h2>
+          <p class="lead reveal" data-delay="2">
+            Tell me what you're working on, whether it's a new idea or a build that stalled, and I'll tell you exactly how I'd approach it.
+          </p>
+
+          <div class="contact__links reveal" data-delay="3">
+            <!-- Email + Calendly are set once in js/main.js (CONFIG) -->
+            <a class="contact-link" href="mailto:ogidiayomide44@gmail.com" data-email>
+              <span class="contact-link__label">Email</span>
+              <span data-email-text>ogidiayomide44@gmail.com</span>
+            </a>
+            <a href="https://calendly.com/ogidiayomide" class="btn btn--white" data-calendly target="_blank" rel="noopener">
+              <span class="btn__fill"></span>
+              <span class="btn__text">Book a Call</span>
+              <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg></span>
+            </a>
+          </div>
+
+          <!-- SOCIAL: the whole circular chip is the link; both open in a new tab -->
+          <ul class="social reveal" data-delay="4" aria-label="Profiles">
+            <li><a class="social__chip" href="https://www.linkedin.com/in/ayomide-ogidi-525319316/" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn"><img src="images/social/linkedin.png" alt="" width="22" height="22" /></a></li>
+            <li><a class="social__chip" href="https://www.upwork.com/freelancers/~01fee08b5302c5fa80" target="_blank" rel="noopener" aria-label="Upwork profile (opens in a new tab)" title="Upwork"><img src="images/social/upwork.png" alt="" width="22" height="22" /></a></li>
+            <li><a class="social__chip" href="https://www.facebook.com/share/1G85PnTUGq/" target="_blank" rel="noopener" aria-label="Facebook profile (opens in a new tab)" title="Facebook"><img src="images/social/facebook.svg" alt="" width="22" height="22" /></a></li>
+            <li><a class="social__chip" href="https://wa.me/2348145975727?text=Hi%20Ayomide%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" aria-label="Chat on WhatsApp (opens in a new tab)" title="WhatsApp"><img src="images/social/whatsapp.svg" alt="" width="22" height="22" /></a></li>
+          </ul>
+        </div>
+
+        <!-- ====================================================
+             FORMSPREE (live): submissions go to https://formspree.io/f/xgaoarjk
+             and are emailed to the address on that Formspree account.
+             js/main.js (section 6) validates the fields, sends them with fetch,
+             and shows the success / error message below the button.
+             The field names name / email / message are what Formspree receives;
+             "email" is also used as the reply-to address.
+             ==================================================== -->
+        <form class="contact-form reveal" data-delay="2" id="contactForm"
+              action="https://formspree.io/f/xgaoarjk" method="POST" novalidate>
+          <p class="contact-form__head"><span class="status__dot"></span>New project enquiry</p>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required maxlength="100" />
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required maxlength="255" />
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="What are you building, or what's stuck?" required maxlength="3000"></textarea>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn btn--full">
+            <span class="btn__fill"></span>
+            <span class="btn__text">Send message</span>
+            <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg><svg viewBox="0 0 12 12"><path d="M2 10 10 2M4 2h6v6"/></svg></span>
+          </button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="footer tone-dark">
+    <!-- Prismatic glow: decorative, pure CSS (css/style.css, section 13) -->
+    <div class="footer__glow" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap">
+      <p class="eyebrow reveal"><b>08</b> Next step</p>
+      <p class="display footer__big reveal" data-delay="1">
+        Got an idea, or a build that stalled? Let's get it <em class="it">live.</em>
+      </p>
+      <div class="footer__row">
+        <a href="#top" class="logo">
+          <span class="logo__mark">B</span>
+          <span class="logo__text">Bryce De Developer</span>
+        </a>
+        <p class="footer__tag">AI MVP &amp; SaaS Builder · Lagos, Nigeria</p>
+        <a class="footer__email" href="mailto:ogidiayomide44@gmail.com" data-email><span data-email-text>ogidiayomide44@gmail.com</span></a>
+        <ul class="social social--footer" aria-label="Profiles">
+          <li><a class="social__chip" href="https://www.linkedin.com/in/ayomide-ogidi-525319316/" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn"><img src="images/social/linkedin.png" alt="" width="22" height="22" /></a></li>
+          <li><a class="social__chip" href="https://www.upwork.com/freelancers/~01fee08b5302c5fa80" target="_blank" rel="noopener" aria-label="Upwork profile (opens in a new tab)" title="Upwork"><img src="images/social/upwork.png" alt="" width="22" height="22" /></a></li>
+          <li><a class="social__chip" href="https://www.facebook.com/share/1G85PnTUGq/" target="_blank" rel="noopener" aria-label="Facebook profile (opens in a new tab)" title="Facebook"><img src="images/social/facebook.svg" alt="" width="22" height="22" /></a></li>
+          <li><a class="social__chip" href="https://wa.me/2348145975727?text=Hi%20Ayomide%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" aria-label="Chat on WhatsApp (opens in a new tab)" title="WhatsApp"><img src="images/social/whatsapp.svg" alt="" width="22" height="22" /></a></li>
+        </ul>
+      </div>
+      <p class="footer__copy">© <span id="year"></span> Bryce De Developer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       VIDEO LIGHTBOX (filled by js/main.js)
+       ========================================================= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
+    <div class="lightbox__backdrop" data-close></div>
+    <div class="lightbox__panel">
+      <div class="lightbox__head">
+        <p class="lightbox__title" id="lightboxTitle"></p>
+        <button class="lightbox__close" type="button" aria-label="Close video" data-close>✕</button>
+      </div>
+      <div class="lightbox__frame" id="lightboxFrame"></div>
+    </div>
+  </div>
+
+  <!-- GSAP + ScrollTrigger (CDN, no build step) power the hero → works zoom transition.
+       If they fail to load, the site still works: everything just shows without the effect. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
